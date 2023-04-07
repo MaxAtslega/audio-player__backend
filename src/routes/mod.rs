@@ -1,4 +1,8 @@
+pub mod catcher;
+
 use rocket::{Error, Ignite, Rocket};
+use rocket::catchers;
+
 use crate::config::Config;
 use crate::api;
 
@@ -16,6 +20,15 @@ pub async fn init(conf: &Config) -> Result<Rocket<Ignite>, Error> {
 
     let rocket = rocket::custom(figment)
         .mount("/api/", openapi_get_routes![api::info::get_info])
+        .register("/", catchers![
+            catcher::bad_request,
+            catcher::unauthorized,
+            catcher::forbidden,
+            catcher::not_found,
+            catcher::not_implemented,
+            catcher::internal_error,
+            catcher::unprocessable_entity,
+        ])
         .mount(
             "/api/swagger/",
             make_swagger_ui(&SwaggerUIConfig {

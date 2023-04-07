@@ -21,6 +21,7 @@ dotenv = "0.15.0"
 chrono = "0.4.24"
 clap = { version = "3.2.23", features = ["derive"] }
 validator = { version = "0.16.0", features = ["derive", "phone", "unic"] }
+simplelog = "0.12.1"
 
 serde = "1.0.159"
 serde_derive = "1.0.159"

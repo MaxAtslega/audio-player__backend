@@ -1,0 +1,16 @@
+[app]
+environment = "dev" # use dev/prod/test
+
+[database]
+db_type = "postgres"
+connection_string = "postgres://postgres:IAUSDH34234#!f2344fadSDASG8d237d#!#-aSDasfg@37.114.40.4:5142/panel"
+
+
+[webserver]
+address = "0.0.0.0"
+port = 6814
+ident = "AudioPlayer" #Server Header Value
+log_level = "off" #Dont log requests in Terminal
+
+[log]
+file = "latest.api.log"

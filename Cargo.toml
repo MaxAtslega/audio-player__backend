@@ -2,7 +2,30 @@
 name = "audio-player-backend"
 version = "0.1.0"
 edition = "2021"
+description = "Audio-Player Backend API Server"
+
+authors = ["Max Atslega <max@atslega.dev>"]
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+rocket = {version="0.5.0-rc.2", features=["json"]}
+rocket_contrib = "0.4.10"
+rocket_codegen = "0.4.11"
+rocket_okapi = { version = "0.8.0-rc.2", features = ["swagger"] }
+
+okapi = { version = "0.7.0-rc.1" }
+tokio = { version = "1.19.2", features = ["full"] }
+schemars = "0.8.12"
+dotenv = "0.15.0"
+chrono = "0.4.24"
+clap = { version = "3.2.23", features = ["derive"] }
+validator = { version = "0.16.0", features = ["derive", "phone", "unic"] }
+
+serde = "1.0.159"
+serde_derive = "1.0.159"
+serde_json = "1.0.95"
+
+thiserror = "1.0.24"
+log = "0.4.17"
+toml = "0.7.3"

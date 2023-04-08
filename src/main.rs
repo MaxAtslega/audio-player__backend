@@ -7,6 +7,8 @@ mod config;
 mod log;
 mod routes;
 mod api;
+mod schema;
+mod utils;
 
 use config::Config;
 

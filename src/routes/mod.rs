@@ -5,11 +5,13 @@ use rocket::catchers;
 
 use crate::config::Config;
 use crate::api;
+use std::sync::Mutex;
 
 use rocket_okapi::openapi_get_routes;
 use rocket_okapi::swagger_ui::{make_swagger_ui, SwaggerUIConfig};
+use diesel::PgConnection;
 
-pub async fn init(conf: &Config) -> Result<Rocket<Ignite>, Error> {
+pub async fn init(conf: &Config, db_connection: PgConnection) -> Result<Rocket<Ignite>, Error> {
     let conf = &conf.webserver;
 
     let figment = rocket::Config::figment()
@@ -36,6 +38,7 @@ pub async fn init(conf: &Config) -> Result<Rocket<Ignite>, Error> {
                 ..Default::default()
             }),
         )
+        .manage(Mutex::new(db_connection))
         .ignite()
         .await?;
 

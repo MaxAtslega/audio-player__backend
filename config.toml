@@ -3,7 +3,7 @@ environment = "dev" # use dev/prod/test
 
 [database]
 db_type = "postgres"
-connection_string = "postgres://postgres:IAUSDH34234#!f2344fadSDASG8d237d#!#-aSDasfg@37.114.40.4:5142/panel"
+connection_string = "postgres://postgres:g5480v@127.0.0.1:5432/audioplayer"
 
 
 [webserver]
